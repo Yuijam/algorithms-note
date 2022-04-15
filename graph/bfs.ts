@@ -64,8 +64,8 @@ class BreadthFirstPaths {
 const main = () => {
   const g = new Graph(data);
   const bfs = new BreadthFirstPaths(g, 0);
-  const path = bfs.pathTo(0);
-  console.log(path);
+  const path = bfs.pathTo(4);
+  console.log(path);  // [ 4, 2, 0 ]
 }
 
 main();

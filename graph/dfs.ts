@@ -20,8 +20,8 @@ const data: TGraphData = {
 }
 
 class DepthFirstSearch {
-  private marked: boolean[];
-  private count: number;
+  private marked: boolean[];  // 标记所有与s连通的点
+  private count: number; // 与s连通点的顶点总数
 
   constructor(g: Graph, s: number) {
     this.marked = [];
@@ -30,9 +30,9 @@ class DepthFirstSearch {
   }
 
   private dfs(g: Graph, v: number) {
-    this.marked[v] = true;
+    this.marked[v] = true;  // 每访问一个点v则标记为已访问
     this.count++;
-    g.adjOf(v).forEach(adj => {
+    g.adjOf(v).forEach(adj => {  // 遍历v的每一个相邻点
       if (!this.marked[adj]) {
         this.dfs(g, adj);
       }
@@ -50,13 +50,15 @@ class DepthFirstSearch {
 
 const main = () => {
   const g = new Graph(data);
-  const search = new DepthFirstSearch(g, 9);
+  const search = new DepthFirstSearch(g, 0);
 
+  const marked = [];
   for (let v = 0; v < g.getV(); v++) {
     if (search.getMarked(v)) {
-      console.log(v);
+      marked.push(v);
     }
   }
+  console.log(marked.join(', '));
 
   if (search.getCount() != g.getV()) {
     console.log('not connected');
