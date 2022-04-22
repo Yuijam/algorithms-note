@@ -6,7 +6,7 @@
   "author": "yuijam <yuijam@live.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node graph/cc.ts"
+    "dev": "ts-node graph/directed/topological.ts"
   },
   "dependencies": {
     "@types/node": "^17.0.24",
