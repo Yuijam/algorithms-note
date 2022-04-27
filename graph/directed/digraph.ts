@@ -11,13 +11,15 @@ export class Digraph {
   private adj: number[][];
   private data: TGraphData;
 
-  constructor(data: TGraphData) {
+  constructor(data: TGraphData, initEdge: boolean = true) {
     this.V = data.V;
     this.E = 0;
     this.adj = [];
 
     this.data = data;  // just save for reverse();
-    data.edges.forEach(([v, w]) => this.addEdge(v, w));
+    if (initEdge) {
+      data.edges.forEach(([v, w]) => this.addEdge(v, w));
+    }
   }
 
   public addEdge(v: number, w: number) {
@@ -41,7 +43,7 @@ export class Digraph {
   }
 
   public reverse(): Digraph {
-    const r = new Digraph(this.data);
+    const r = new Digraph(this.data, false);
     for (let v = 0; v < r.getV(); v++) {
         this.adjOf(v).forEach(w => r.addEdge(w, v));
     }
