@@ -42,4 +42,8 @@ export class EdgeWightedGraph {
   public getE() {
     return this.E
   }
+
+  public getEdges() {
+    return this.adj.flat();
+  }
 }

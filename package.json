@@ -6,7 +6,7 @@
   "author": "yuijam <yuijam@live.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node graph/mst/prim.ts"
+    "dev": "ts-node graph/mst/kruskal.ts"
   },
   "dependencies": {
     "@types/node": "^17.0.24",

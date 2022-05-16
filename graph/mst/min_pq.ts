@@ -1,7 +1,11 @@
 import { Edge } from './edge'
 // Fake Min PQ
 export class MinPQ {
-  private data: Edge[] = []
+  private data: Edge[];
+
+  constructor(data: Edge[] = []) {
+    this.data = data;
+  }
 
   public insert(n: Edge) {
     this.data.push(n)
