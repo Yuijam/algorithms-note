@@ -17,7 +17,6 @@ class AcyclicLP {
     this.distTo[s] = 0
 
     const top = new Topological(ng)
-    console.log(top)
     top.getOrder().forEach(v => {
       this.relax(ng, v)
     })
@@ -121,5 +120,21 @@ const main = () => {
   })
   console.log(`path: ${path.join(', ')}`)
 }
+
+/*
+Start times:
+0: 0
+1: 41
+2: 123
+3: 91
+4: 70
+5: 0
+6: 70
+7: 41
+8: 91
+9: 41
+Finish time: 173
+path: 0, 9, 6, 8, 2
+*/
 
 main()
