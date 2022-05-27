@@ -22,7 +22,7 @@ export class DirectedCycle {
   private dfs(g: EdgeWightedGraph, v: number) {
     this.onStack[v] = true;
     this.marked[v] = true;
-    g.adjOf(v).forEach(w => {
+    g.adjOf(v)?.forEach(w => {  // bellman_ford中检测环的时候调用到这里并不能保证g中adj的每个顶点都有值
       if (this.hasCycle()) {
         return;
       } else if (!this.marked[w.to()]) {

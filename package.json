@@ -6,7 +6,7 @@
   "author": "yuijam <yuijam@live.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node graph/spt/acyclic_lp.ts"
+    "dev": "ts-node graph/spt/bellman_ford.ts"
   },
   "dependencies": {
     "@types/node": "^17.0.24",
