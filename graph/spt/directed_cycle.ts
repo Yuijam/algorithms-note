@@ -1,9 +1,10 @@
+import { DirectedEdge } from "./directed_edge";
 import { EdgeWightedGraph } from "./edge_weighted_graph";
 
 export class DirectedCycle {
   private marked: boolean[];
-  private edgeTo: number[];
-  private cycle: number[]; // 有向环中的所有顶点
+  private edgeTo: DirectedEdge[];
+  private cycle: DirectedEdge[]; // 有向环中的所有顶点
   private onStack: boolean[];  // 递归调用栈上的所有顶点
 
   constructor(g: EdgeWightedGraph) {
@@ -26,14 +27,13 @@ export class DirectedCycle {
       if (this.hasCycle()) {
         return;
       } else if (!this.marked[w.to()]) {
-        this.edgeTo[w.to()] = v;
+        this.edgeTo[w.to()] = w;
         this.dfs(g, w.to());
       } else if (this.onStack[w.to()]) {
-        for (let x = v; x != w.to(); x = this.edgeTo[x]) {
-          this.cycle.push(x);
+        this.cycle.unshift(w);
+        for (let x = v; x != w.to(); x = this.edgeTo[x].from()) {
+          this.cycle.unshift(this.edgeTo[x])
         }
-        this.cycle.push(w.to());
-        this.cycle.push(v);
       }
     })
     this.onStack[v] = false;
@@ -43,7 +43,7 @@ export class DirectedCycle {
     return this.cycle.length > 0;
   }
 
-  public getCycle(): number[] {
+  public getCycle() {
     return this.cycle;
   }
 }

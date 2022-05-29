@@ -2,13 +2,13 @@ import { DirectedCycle } from "./directed_cycle"
 import { DirectedEdge } from "./directed_edge"
 import { EdgeWightedGraph, TEdge, TGraphData } from "./edge_weighted_graph"
 
-class BellmanFordSP {
+export class BellmanFordSP {
   private distTo: number[] = []
   private edgeTo: DirectedEdge[] = []
   private onQ: boolean[] = []
   private queue: number[] = []
   private cost: number = 0
-  private cycle: number[] =[]
+  private cycle: DirectedEdge[] =[]
 
   constructor(g: EdgeWightedGraph, s: number) {
     for (let v = 0; v < g.getV(); v++) {
@@ -26,12 +26,14 @@ class BellmanFordSP {
   }
 
   private relax(g: EdgeWightedGraph, v: number) {
+    console.log(`relax ${v}`)
     g.adjOf(v).forEach(e => {
       const w = e.to()
       if (this.distTo[w] > this.distTo[v] + e.getWeight()) {
         this.distTo[w] = this.distTo[v] + e.getWeight()
         this.edgeTo[w] = e
         if (!this.onQ[w]) {
+          console.log(`push`, w)
           this.queue.push(w)
           this.onQ[w] = true
         }
@@ -60,6 +62,7 @@ class BellmanFordSP {
         edges.push([e.from(), e.to(), e.getWeight()])
       }
     })
+    console.log('edges = ', edges)
     const cycleGraph: TGraphData =  {
       V: v,
       edges
@@ -144,7 +147,9 @@ const data1: TGraphData = {
 }
 
 /*
-cycle =  [ 5, 4, 5 ]
+cycle:
+4->5 0.35
+5->4 -0.66
 */
 
 const main = () => {
@@ -154,7 +159,8 @@ const main = () => {
   const sp = new BellmanFordSP(g, s)
   
   if (sp.hasNegativeCycle()) {
-    console.log('cycle = ', sp.negativeCycle())
+    console.log('cycle:')
+    sp.negativeCycle().forEach(e => console.log(`${e.from()}->${e.to()} ${e.getWeight()}`))
   } else {
     for (let t = 0; t < g.getV(); t++) {
       let str = `${s} to ${t} (${sp.getDistTo(t)}): `;
