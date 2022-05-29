@@ -1,4 +1,3 @@
-import { stat } from "fs"
 import { BellmanFordSP } from "./bellman_ford"
 import { EdgeWightedGraph, TEdge, TGraphData } from "./edge_weighted_graph"
 
@@ -12,7 +11,6 @@ const data: TGraphData = {
     [1, 0, 1.349],
     [1, 2, 0.888],
     [1, 3, 1.433],
-    [1, 4, 1.366],
     [2, 0, 1.521],
     [2, 1, 1.126],
     [2, 3, 1.614],
@@ -21,7 +19,6 @@ const data: TGraphData = {
     [3, 1, 0.698],
     [3, 2, 0.619],
     [3, 4, 0.953],
-    [4, 0, 0.995],
     [4, 1, 0.732],
     [4, 2, 0.650],
     [4, 3, 1.049],
@@ -46,5 +43,11 @@ const main = () => {
     })   
   }
 }
+
+/*
+1000 USD = 741 EUR
+741 EUR = 658.008 GBP
+658.008 GBP = 1000.830168 USD
+*/
 
 main()

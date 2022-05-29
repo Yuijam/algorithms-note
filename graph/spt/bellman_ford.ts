@@ -26,14 +26,12 @@ export class BellmanFordSP {
   }
 
   private relax(g: EdgeWightedGraph, v: number) {
-    console.log(`relax ${v}`)
     g.adjOf(v).forEach(e => {
       const w = e.to()
       if (this.distTo[w] > this.distTo[v] + e.getWeight()) {
         this.distTo[w] = this.distTo[v] + e.getWeight()
         this.edgeTo[w] = e
         if (!this.onQ[w]) {
-          console.log(`push`, w)
           this.queue.push(w)
           this.onQ[w] = true
         }
@@ -62,7 +60,6 @@ export class BellmanFordSP {
         edges.push([e.from(), e.to(), e.getWeight()])
       }
     })
-    console.log('edges = ', edges)
     const cycleGraph: TGraphData =  {
       V: v,
       edges
@@ -175,4 +172,4 @@ const main = () => {
   
 }
 
-main()
+// main()
