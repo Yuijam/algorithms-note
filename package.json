@@ -6,7 +6,7 @@
   "author": "yuijam <yuijam@live.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node string/sort/lsd_warm_up.ts"
+    "dev": "ts-node string/sort/lsd.ts"
   },
   "dependencies": {
     "@types/node": "^17.0.24",
