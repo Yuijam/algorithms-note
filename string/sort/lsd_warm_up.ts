@@ -76,3 +76,6 @@ data.forEach((d) => console.log(`${d.group} ${d.name}`))
 4 Thompson
 4 Wilson
 */
+
+// 防止ts报错
+export {}

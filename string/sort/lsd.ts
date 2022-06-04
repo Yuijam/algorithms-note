@@ -49,3 +49,6 @@ O9BVEEW
 UQ89P2M
 ZM12W89
 */
+
+// 防止ts报错
+export {}

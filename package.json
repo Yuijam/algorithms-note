@@ -6,11 +6,11 @@
   "author": "yuijam <yuijam@live.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node string/sort/lsd.ts"
+    "dev": "ts-node string/sort/msd.ts"
   },
   "dependencies": {
     "@types/node": "^17.0.24",
-    "ts-node": "^10.7.0",
+    "ts-node": "^10.8.0",
     "typescript": "^4.6.3"
   }
 }
