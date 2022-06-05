@@ -6,7 +6,7 @@
   "author": "yuijam <yuijam@live.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node string/sort/msd.ts"
+    "dev": "ts-node string/sort/quick3string.ts"
   },
   "dependencies": {
     "@types/node": "^17.0.24",
