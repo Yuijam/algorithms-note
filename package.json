@@ -6,7 +6,7 @@
   "author": "yuijam <yuijam@live.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node string/search_tree/tst.ts"
+    "dev": "ts-node string/substring/boyer_moore.ts"
   },
   "dependencies": {
     "@types/node": "^17.0.24",
