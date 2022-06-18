@@ -35,8 +35,8 @@ class BoyerMoore {
   }
 }
 
-const bm = new BoyerMoore('caa');
-console.log(bm.search('abcaaccaa'))  // 2
-console.log(bm.search('epqacaaac'))  // 4
+const bm = new BoyerMoore('caa')
+console.log(bm.search('abcaaccaa')) // 2
+console.log(bm.search('epqacaaac')) // 4
 
 export {}

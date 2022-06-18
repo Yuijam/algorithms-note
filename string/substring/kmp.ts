@@ -19,6 +19,7 @@ class KMP {
 
   public search(txt: string) {
     let i: number, j: number, N = txt.length, M = this.pat.length
+    // i永不回头，然后通过查表来更新j
     for (i = 0, j = 0; i < N && j < M; i++) {
       j = this.dfa[txt.charCodeAt(i)][j]
     }
